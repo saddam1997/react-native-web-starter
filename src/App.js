@@ -1,15 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
-import { View, Text, Animated, StyleSheet, StatusBar } from "react-native";
+import { View, Text, Animated, StyleSheet, StatusBar} from "react-native";
 import { exampleAction } from "./redux/actions/exampleAction";
+import Other from './scenes/Other';
+import Home from './scenes/Home';
+import { Router, Switch,  Route } from './Routing';
+
 
 export class App extends React.Component {
     constructor(props) {
         super(props);
-
         this.imageAnimation = new Animated.Value(0);
     }
-
     componentDidMount() {
         Animated.loop(
             Animated.timing(this.imageAnimation, {
@@ -20,7 +22,6 @@ export class App extends React.Component {
 
         StatusBar.setBarStyle("light-content");
     }
-
     render() {
         const rotationStyle = {
             transform: [
@@ -48,6 +49,12 @@ export class App extends React.Component {
                     <Text style={styles.appIntro}>To get started, edit src/App.js and save to reload.</Text>
                 </View>
                 <Text>Redux edition</Text>
+                 <Router>
+                    <Switch hideNavBar={true}>
+                        <Route exact path="/" component={Home} />
+                        <Route path="/one" component={Other} />
+                    </Switch>
+                </Router>
             </View>
         );
     }

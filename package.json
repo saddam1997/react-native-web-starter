@@ -10,6 +10,7 @@
         "react-native": "https://github.com/expo/react-native/archive/sdk-27.0.0.tar.gz",
         "react-native-web": "^0.8.9",
         "react-redux": "^5.0.7",
+        "react-router-dom": "^5.0.0",
         "react-scripts": "1.1.4",
         "redux": "^4.0.0"
     },
